@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>UMD Passport</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>UMD Passport</h1>
+  </header>
+
+  <main>
+    <section id="links">
+      <h2>Where to go</h2>
+      <ul>
+        <li><a href="#">Club Sign-Up Sheet</a></li>
+        <li><a href="#">Study Spot Map</a></li>
+        <li><a href="#">Instructions / About</a></li>
+      </ul>
+    </section>
+
+    <section id="badges">
+      <h2>Available Badges</h2>
+      <button class="badge-btn" data-badge="Testudo's Nose">Touch Testudo's Nose</button>
+    </section>
+
+    <section id="passport">
+      <h2>Your Passport</h2>
+      <ul id="passport-list">
+        <!-- earned badges will show up here -->
+      </ul>
+    </section>
+  </main>
+
+  <div id="badge-popup" class="popup hidden">
+    <div class="popup-card">
+      <img src="testudo_nose_badge.webp" alt="" width="140">
+      <h3>Badge Earned!</h3>
+      <p id="popup-name"></p>
+      <button id="popup-close">Add to Passport</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
