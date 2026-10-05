@@ -94,18 +94,114 @@ section h2 {
 }
 
 /* ---------- Passport list ---------- */
+/* ---------- Passport booklet ---------- */
+#passport {
+  padding: 0;
+  overflow: hidden;
+  border: 6px solid #b8122a;
+  border-radius: 14px;
+  background: #fdf6e3;           /* cream paper */
+}
+
+.passport-cover {
+  background: #b8122a;
+  color: #ffd200;
+  text-align: center;
+  padding: 18px 12px 14px;
+  border-bottom: 4px double #ffd200;
+}
+
+.passport-top {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+#passport .passport-cover h2 {
+  margin: 4px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  border: none;
+  padding: 0;
+  color: #ffd200;
+}
+
+.passport-page {
+  padding: 16px 20px 24px;
+}
+
+.holder {
+  margin: 0 0 14px;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  color: #6b5a3a;
+}
+
 #passport-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+  counter-reset: page;
 }
 
 #passport-list li {
-  background: #fff8d6;
-  border-left: 5px solid #ffd200;
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin-bottom: 8px;
+  counter-increment: page;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* empty slot */
+#passport-list li.slot {
+  border: 2px dashed #cdbf9a;
+  color: #cdbf9a;
+}
+
+#passport-list li.slot::before {
+  content: counter(page);
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+}
+
+/* earned stamp */
+#passport-list li.stamp {
+  border: 3px double #b8122a;
+  color: #b8122a;
+  background: rgba(226, 24, 51, 0.05);
+  padding: 8px;
+  transform: rotate(-3deg);
+  animation: stamp-thunk 0.35s ease-out;
+}
+
+#passport-list li.stamp:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.stamp-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stamp-date {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  margin-top: 6px;
+}
+
+@keyframes stamp-thunk {
+  from { transform: scale(1.8) rotate(-12deg); opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ---------- Badge-earned pop-up ---------- */
